@@ -4,10 +4,10 @@ for i in $hosts
 do
 ping $i -c 1
 if [ $? -eq 0 ]; then
-name=`sshpass -p 'Zxcv!234' ssh -q -o 'UserKnownHostsFile /dev/null' -o 'StrictHostKeyChecking=no' root@$i "hostname"`
-sshpass -p 'Zxcv!234' ssh -q -o 'UserKnownHostsFile /dev/null' -o 'StrictHostKeyChecking=no' root@$i "export DISPLAY=:0"
-sshpass -p 'Zxcv!234' ssh -q -o 'UserKnownHostsFile /dev/null' -o 'StrictHostKeyChecking=no' root@$i "DISPLAY=:0 import -window root /tmp/$name.png"
-sshpass -p 'Zxcv!234' scp -o StrictHostKeyChecking=no root@$i:/tmp/*.png /home/ads/log
+name=`sshpass -p '' ssh -q -o 'UserKnownHostsFile /dev/null' -o 'StrictHostKeyChecking=no' root@$i "hostname"`
+sshpass -p '' ssh -q -o 'UserKnownHostsFile /dev/null' -o 'StrictHostKeyChecking=no' root@$i "export DISPLAY=:0"
+sshpass -p '' ssh -q -o 'UserKnownHostsFile /dev/null' -o 'StrictHostKeyChecking=no' root@$i "DISPLAY=:0 import -window root /tmp/$name.png"
+sshpass -p '' scp -o StrictHostKeyChecking=no root@$i:/tmp/*.png /home/ads/log
 else
 echo "The host $i is down!"
 fi
